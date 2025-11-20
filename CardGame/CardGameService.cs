@@ -145,7 +145,8 @@ namespace CardGame
         /// </summary>
         public static int CalculateHandScore(string hand)
         {
-            // Step 1: Reject any characters that are invalid (not letter, number, or comma)
+            // Step 1: Reject any characters that are invalid (not letter, number, or comma) but allow whitespace by removing
+            hand = hand.Replace(" ", ""); // remove all spaces
             foreach (char ch in hand)
             {
                 if (IsLetterOrNumber(ch) == CharType.Invalid && ch != ',')
